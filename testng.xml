@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<suite name="Suite" paralell="">
+    <listeners>
+        <listener class-name="com.notesapp.listeners.TestListener"/>
+    </listeners>
+    <test name="Test">
+        <parameter name="platformName" value="Android"/>
+        <parameter name="platformVersion" value="11"/>
+        <parameter name="deviceName" value="Any"/>
+        <classes>
+            <class name="com.notesapp.tests.NotesTest"/>
+        </classes>
+    </test>
+</suite>
