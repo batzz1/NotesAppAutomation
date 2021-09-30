@@ -2,7 +2,9 @@ package com.notesapp.tests;
 
 import com.notesapp.BaseTest;
 import com.notesapp.pages.HomePage;
+import org.testng.Assert;
 import org.testng.annotations.Test;
+
 
 public class NotesTest extends BaseTest {
 
@@ -14,10 +16,10 @@ public class NotesTest extends BaseTest {
         homePage = new HomePage(driver);
         var notesPage = homePage.tapOnMenu()
                 .tapOnTextNote();
-        notesPage.setTitle("Title")
-                .setContent("Content");
-
-        Thread.sleep(30000);
-
+        notesPage.setTitle("Appium Test")
+                .setContent("Running Test")
+                .tapOnDrawer();
+        Assert.assertEquals("Appium Test", notesPage.getNoteTitle());
+        Assert.assertEquals("Running Test", notesPage.getNoteContent());
     }
 }

@@ -2,8 +2,6 @@ package com.notesapp.pages;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
-import io.appium.java_client.MobileElement;
-import io.appium.java_client.pagefactory.AndroidBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
@@ -30,6 +28,7 @@ public class HomePage extends BasePage {
         tapOnElement(btnCheckList);
         return new CheckListPage(driver);
     }
+
 
     public NotesPage tapOnTextNote() {
         tapOnElement(btnTextNote);

@@ -34,8 +34,7 @@ public class BasePage {
         element.sendKeys(text);
     }
 
-    public MobileElement waitForElementToBeClickable( MobileElement element, int timeoutInSeconds) {
-        WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
+    public MobileElement waitForElementToBeClickable(MobileElement element, int timeoutInSeconds) {
         return (MobileElement) wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
@@ -45,8 +44,30 @@ public class BasePage {
         new TouchAction(driver).tap(tapOptions).perform();
     }
 
+    public MobileElement waitForElementToBeVisible(MobileElement element) {
+        return (MobileElement) wait.until(ExpectedConditions.visibilityOf(element));
+    }
+
     public String getAttribute(MobileElement element, String attribute) {
         waitForVisibility(element);
         return element.getAttribute(attribute);
+    }
+
+    public void waitForPresenceOfAllElements(By by) {
+        sleep(3000);
+        wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(by));
+    }
+
+    public void navigateBack() {
+        driver.navigate().back();
+    }
+
+    public void sleep(final long millis) {
+        System.out.println((String.format("sleeping %d ms", millis)));
+        try {
+            Thread.sleep(millis);
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        }
     }
 }
