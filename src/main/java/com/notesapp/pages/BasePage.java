@@ -31,8 +31,12 @@ public class BasePage {
 
     public void sendKeys(MobileElement element, String text) {
         waitForVisibility(element);
+        if (element.getAttribute("text").length() > 0) {
+            element.clear();
+        }
         element.sendKeys(text);
     }
+
 
     public MobileElement waitForElementToBeClickable(MobileElement element, int timeoutInSeconds) {
         return (MobileElement) wait.until(ExpectedConditions.elementToBeClickable(element));

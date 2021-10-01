@@ -5,7 +5,6 @@ import org.testng.ITestResult;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
-import java.util.PrimitiveIterator;
 
 public class TestListener implements ITestListener {
 

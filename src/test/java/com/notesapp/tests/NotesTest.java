@@ -22,4 +22,19 @@ public class NotesTest extends BaseTest {
         Assert.assertEquals("Appium Test", notesPage.getNoteTitle());
         Assert.assertEquals("Running Test", notesPage.getNoteContent());
     }
+
+    @Test
+    public void addNotesAndCategoryTest() {
+        homePage = new HomePage(driver);
+        homePage = new HomePage(driver);
+        var notesPage = homePage.tapOnMenu()
+                .tapOnTextNote();
+        var categoryPage = notesPage.setTitle("Appium Test")
+                .setContent("Running Test")
+                .tapOnAddCategory();
+        categoryPage.addCategory("Category")
+                .tapOnDrawer();
+        Assert.assertEquals("Appium Test", notesPage.getNoteTitle());
+        Assert.assertEquals("Running Test", notesPage.getNoteContent());
+    }
 }
