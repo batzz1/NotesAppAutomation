@@ -5,6 +5,7 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 
 import java.io.File;
@@ -21,7 +22,7 @@ public class BaseTest {
 
 
 
-    @BeforeTest
+    @BeforeMethod
     public void beforeTest() {
         try {
             properties = new Properties();

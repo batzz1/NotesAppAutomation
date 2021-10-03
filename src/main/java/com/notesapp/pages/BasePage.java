@@ -2,6 +2,7 @@ package com.notesapp.pages;
 
 import com.notesapp.utils.TestUtils;
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.touch.TapOptions;
@@ -73,5 +74,10 @@ public class BasePage {
         } catch (InterruptedException ex) {
             ex.printStackTrace();
         }
+    }
+
+    public MobileElement scrollToAnElementByText(String text) {
+        return (MobileElement) driver.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector())" +
+                ".scrollIntoView(new UiSelector().text(\"" + text + "\"));"));
     }
 }
