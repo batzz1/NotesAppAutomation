@@ -1,17 +1,20 @@
 package com.notesapp;
 
+import com.aventstack.extentreports.testng.listener.ExtentITestListenerClassAdapter;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Listeners;
 
 import java.io.File;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.Properties;
+
+@Listeners(ExtentITestListenerClassAdapter.class)
 
 public class BaseTest {
 
@@ -19,7 +22,6 @@ public class BaseTest {
     protected static AppiumDriver driver;
     protected Properties properties;
     InputStream inputStream;
-
 
 
     @BeforeMethod
@@ -38,7 +40,6 @@ public class BaseTest {
             desiredCapabilities.setCapability("appActivity", properties.getProperty("androidAppActivity"));
             String appPath = System.getProperty("user.dir") + File.separator + "app" + File.separator + properties.getProperty("androidAppName");
             desiredCapabilities.setCapability("app", appPath);
-            // desiredCapabilities.setCapability(MobileCapabilityType.NO_RESET, true);
             URL url = new URL(properties.getProperty("appiumURL"));
             driver = new AndroidDriver(url, desiredCapabilities);
         } catch (Exception e) {

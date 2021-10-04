@@ -9,6 +9,7 @@
         <parameter name="deviceName" value="Any"/>
         <classes>
             <class name="com.notesapp.tests.NotesTest"/>
+            <class name="com.notesapp.tests.CheckListTests"/>
         </classes>
     </test>
 </suite>
