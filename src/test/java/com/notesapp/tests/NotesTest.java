@@ -1,7 +1,9 @@
 package com.notesapp.tests;
 
 import com.notesapp.BaseTest;
+import com.notesapp.pages.CategoryPage;
 import com.notesapp.pages.HomePage;
+import com.notesapp.pages.NotesPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -14,7 +16,7 @@ public class NotesTest extends BaseTest {
     @Test
     public void addTextNoteTest() throws InterruptedException {
         homePage = new HomePage(driver);
-        var notesPage = homePage.tapOnMenu()
+        NotesPage notesPage = homePage.tapOnMenu()
                 .tapOnTextNote();
         notesPage.setTitle("Appium Test")
                 .setContent("Running Test")
@@ -27,9 +29,9 @@ public class NotesTest extends BaseTest {
     public void addNotesAndCategoryTest() {
         homePage = new HomePage(driver);
         homePage = new HomePage(driver);
-        var notesPage = homePage.tapOnMenu()
+        NotesPage notesPage = homePage.tapOnMenu()
                 .tapOnTextNote();
-        var categoryPage = notesPage.setTitle("Appium Test")
+        CategoryPage categoryPage = notesPage.setTitle("Appium Test")
                 .setContent("Running Test")
                 .tapOnAddCategory();
         categoryPage.addCategory("Category")

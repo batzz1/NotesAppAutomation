@@ -1,6 +1,8 @@
 package com.notesapp.tests;
 
 import com.notesapp.BaseTest;
+import com.notesapp.pages.CategoryPage;
+import com.notesapp.pages.CheckListPage;
 import com.notesapp.pages.HomePage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -12,7 +14,7 @@ public class CheckListTests extends BaseTest {
     @Test
     public void addCheckListTest() {
         homePage = new HomePage(driver);
-        var checkListPage = homePage.tapOnMenu()
+        CheckListPage checkListPage = homePage.tapOnMenu()
                 .tapOnCheckList();
         checkListPage.setTitle("CheckList")
                 .addItem(2)
@@ -23,9 +25,9 @@ public class CheckListTests extends BaseTest {
     @Test
     public void addCheckListAndCategoryTest() {
         homePage = new HomePage(driver);
-        var checkListPage = homePage.tapOnMenu()
+        CheckListPage checkListPage = homePage.tapOnMenu()
                 .tapOnCheckList();
-        var categoryPage = checkListPage.setTitle("CheckList")
+        CategoryPage categoryPage = checkListPage.setTitle("CheckList")
                 .addItem(2)
                 .tapOnAddCategory();
         categoryPage.addCategory("Category")

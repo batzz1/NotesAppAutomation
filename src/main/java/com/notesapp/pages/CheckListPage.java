@@ -39,7 +39,7 @@ public class CheckListPage extends BasePage {
         if (numberOfItems > 1) {
             for (int i = 0; i < numberOfItems; i++) {
                 lstItems.get(i).click();
-                var itemTxt = "Item " + i;
+                String itemTxt = "Item " + i;
                 sendKeys(lstItems.get(i), itemTxt);
             }
         }
