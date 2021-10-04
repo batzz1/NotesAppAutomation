@@ -16,6 +16,7 @@ All Parameters like <b>App Package</b> <b> App Activity</b> can be configured in
  mvn test
 
 ```
+<b> Reports are generated under root folder with name <b>Report.html</b> and can be configured in <b>extent.properties under /src/main/resources</b>
 <b>Happy Testing </b>
 
 Make sure appium server is running on your system. Currently the capability to start appium server automatically is not supported
